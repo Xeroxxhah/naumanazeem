@@ -18,7 +18,7 @@
     </nav>
     <div class="footer-contact">
       <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
-      <a href="{{ site.Params.phoneHref }}">{{ site.Params.phone }}</a>
+      <a href="{{ site.Params.phoneHref | safeURL }}">{{ site.Params.phone }}</a>
       <span>{{ site.Params.location }}</span>
     </div>
   </div>

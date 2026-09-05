@@ -23,7 +23,7 @@
           <h3 class="cv-block-title">Contact</h3>
           <ul class="cv-list">
             <li><span class="cv-list-label">Email</span><a href="mailto:{{ $cv.contact.email }}">{{ $cv.contact.email }}</a></li>
-            <li><span class="cv-list-label">Phone</span><a href="{{ site.Params.phoneHref }}">{{ $cv.contact.phone }}</a></li>
+            <li><span class="cv-list-label">Phone</span><a href="{{ site.Params.phoneHref | safeURL }}">{{ $cv.contact.phone }}</a></li>
             <li><span class="cv-list-label">Location</span>{{ $cv.contact.location }}</li>
             <li><span class="cv-list-label">Web</span><a href="https://{{ $cv.contact.website }}" target="_blank" rel="noopener">{{ $cv.contact.website }}</a></li>
           </ul>

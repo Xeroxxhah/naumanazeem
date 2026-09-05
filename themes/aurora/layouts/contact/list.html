@@ -19,7 +19,7 @@
       <div class="contact-card">
         <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "activity") }}</span>
         <h2 class="contact-card-title">Phone / WhatsApp</h2>
-        <a class="contact-card-link" href="{{ site.Params.phoneHref }}">{{ site.Params.phone }}</a>
+        <a class="contact-card-link" href="{{ site.Params.phoneHref | safeURL }}">{{ site.Params.phone }}</a>
         <p class="contact-card-note">Same-day replies, usually within working hours.</p>
       </div>
       <div class="contact-card">
