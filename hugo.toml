@@ -1,5 +1,5 @@
 # ── Site ────────────────────────────────────────────────────────────────
-baseURL = 'https://xeroxxhah.github.io/naumanazeem/'
+baseURL = 'https://naumanazeem.work/'
 locale = 'en-US'
 title = 'Nauman Azeem — Cybersecurity Engineer & Penetration Tester'
 enableRobotsTXT = true
