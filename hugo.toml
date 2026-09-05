@@ -1,0 +1,75 @@
+# ── Site ────────────────────────────────────────────────────────────────
+baseURL = 'https://naumanazeem.work/'
+locale = 'en-US'
+title = 'Nauman Azeem — Cybersecurity Engineer & Penetration Tester'
+enableRobotsTXT = true
+
+# ── Content ─────────────────────────────────────────────────────────────
+theme = 'aurora'
+enableEmoji = false
+defaultContentLanguage = 'en'
+summaryLength = 28
+
+# ── Taxonomies ──────────────────────────────────────────────────────────
+[taxonomies]
+  tag = 'tags'
+
+# ── Params ──────────────────────────────────────────────────────────────
+[params]
+  # Identity
+  name = 'Nauman Azeem'
+  role = 'Cybersecurity Engineer · Penetration Tester'
+  monogram = 'NA'
+  # Profile copy (shown in the About section on the home page)
+  profileLead = "Penetration testing, red teaming, and the engineering that fixes what the tests find."
+  intro = "I'm a cybersecurity engineer in Rawalpindi, Pakistan, with over four years in penetration testing and vulnerability assessment across web applications, networks, mobile, and cloud. I do the manual testing that scanners miss, lead red-team engagements, and build the Python tooling that makes security work repeatable. I also build software — my company, Phylaxos SMC (Pvt) Ltd, makes Nizam Maktab, a school-management system for Pakistani schools."
+
+  # Company / product
+  companyName = 'Phylaxos SMC (Pvt) Ltd'
+
+  # Contact
+  email = 'work.naumanazeem@gmail.com'
+  phone = '+92 318 5155488'
+  phoneHref = 'tel:+923185155488'
+  location = 'Rawalpindi, Pakistan · Remote worldwide'
+
+  # Footer
+  footerNote = 'Finding weaknesses before attackers do — and building software that holds up.'
+
+  # Blog section label
+  blogTitle = 'Field notes'
+  blogSubtitle = 'Notes from engagements, labs, and the occasional build.'
+
+  # Socials
+  socialGithub = 'https://github.com/XeroxXhah'
+  socialLinkedin = 'https://www.linkedin.com/in/muhammad-nauman-azeem-107a07180'
+  socialEmail = 'mailto:work.naumanazeem@gmail.com'
+
+# ── Menus ───────────────────────────────────────────────────────────────
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'CV'
+  pageRef = '/cv/'
+  weight = 20
+[[menus.main]]
+  name = 'Company'
+  pageRef = '/company/'
+  weight = 30
+[[menus.main]]
+  name = 'Blog'
+  pageRef = '/blog/'
+  weight = 40
+[[menus.main]]
+  name = 'Contact'
+  pageRef = '/contact/'
+  weight = 50
+
+# ── Outputs ─────────────────────────────────────────────────────────────
+[outputs]
+  home = ['HTML', 'RSS']
+  section = ['HTML', 'RSS']
+  taxonomy = ['HTML', 'RSS']
+  term = ['HTML', 'RSS']

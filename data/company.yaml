@@ -1,0 +1,40 @@
+# ── Company content — Phylaxos SMC (Pvt) Ltd, makers of Nizam Maktab ────
+
+name: Phylaxos SMC (Pvt) Ltd
+product: Nizam Maktab
+tagline: >
+  We build Nizam Maktab, school-management software for Pakistani schools —
+  and bring the security discipline behind it to every product we ship.
+established: 2020s
+website: https://nizammaktab.online
+contactEmail: info@nizammaktab.online
+
+about: >
+  Phylaxos SMC (Pvt) Ltd builds software for Pakistani schools and tests
+  the software everyone else builds. Our product, Nizam Maktab, replaces
+  the paper register, the cash box, and the phone calls: fee challans,
+  attendance, and parent notifications in English and Urdu, with no app
+  for parents to install. The same team that attacks web applications for
+  a living designs and hardens it — security is the default, not a
+  feature added later.
+
+# Capability areas — icon is an inline SVG reference (see icon partial)
+services:
+  - { title: Offensive Security, icon: shield, text: Penetration testing and vulnerability assessment of web applications, networks, mobile, and infrastructure — with remediation, not just findings. }
+  - { title: Red Teaming & Social Engineering, icon: target, text: Simulated attacks against people and systems, run safely and documented thoroughly, to show where defenses actually bend. }
+  - { title: Product Security, icon: code, text: Secure-by-default software delivery: Python, Flask/Django, Azure and AWS — including Nizam Maktab, our school-management product. }
+
+process:
+  - { title: Recon, text: Map the surface — hosts, apps, APIs, and the trust boundaries between them. }
+  - { title: Exploit, text: Attack the way an adversary would: manual, measured, and evidence-backed. }
+  - { title: Report, text: Findings ranked by real risk, each with a fix that fits the team that owns it. }
+  - { title: Verify, text: Retest after remediation so the risk stays closed. }
+
+whyUs:
+  - Security people who actually build software — recommendations are grounded in code.
+  - Manual testing on top of tooling; the findings scanners miss are the ones that matter.
+  - Engagements end with fixes and retests, not a 100-page PDF.
+  - You talk to the engineer who ran the test, not an account manager.
+
+clients:
+  - { name: Nizam Maktab, blurb: 'School management product we design, build, and harden in-house.' }

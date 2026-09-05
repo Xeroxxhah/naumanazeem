@@ -1,0 +1,68 @@
+{{ define "main" }}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Contact</p>
+    <h1 class="page-title">Get in touch</h1>
+    <p class="page-lead">Penetration testing, red-team exercises, security review, or Nizam Maktab — email is the fastest way to reach me, WhatsApp works too.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <div class="contact-card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "mail") }}</span>
+        <h2 class="contact-card-title">Email</h2>
+        <a class="contact-card-link" href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>
+        <p class="contact-card-note">Best for engagement inquiries and security questions.</p>
+      </div>
+      <div class="contact-card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "activity") }}</span>
+        <h2 class="contact-card-title">Phone / WhatsApp</h2>
+        <a class="contact-card-link" href="{{ site.Params.phoneHref }}">{{ site.Params.phone }}</a>
+        <p class="contact-card-note">Same-day replies, usually within working hours.</p>
+      </div>
+      <div class="contact-card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "school") }}</span>
+        <h2 class="contact-card-title">Nizam Maktab</h2>
+        <p class="contact-card-link">{{ hugo.Data.company.product }} — school management software</p>
+        <a class="contact-card-note-link" href="mailto:{{ hugo.Data.company.contactEmail }}">{{ hugo.Data.company.contactEmail }}</a>
+      </div>
+      <div class="contact-card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" "github") }}</span>
+        <h2 class="contact-card-title">Elsewhere</h2>
+        <p class="contact-card-note">GitHub and LinkedIn — occasional write-ups and tooling.</p>
+        {{ partial "socials.html" . }}
+      </div>
+    </div>
+
+    <div class="form-panel">
+      <p class="eyebrow">Direct line</p>
+      <h2 class="form-title">Send a message</h2>
+      <p class="form-sub">The form opens your mail client with the message ready — or email me directly at {{ site.Params.email }}.</p>
+      <form class="contact-form" id="contact-form" action="mailto:{{ site.Params.email }}" method="get" enctype="text/plain">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="f-name">Name</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="f-email">Email</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="f-subject">Subject</label>
+          <input id="f-subject" name="subject" type="text" required>
+        </div>
+        <div class="form-field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" name="body" rows="6" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Send message</button>
+        <p class="form-note" id="form-note"></p>
+      </form>
+    </div>
+  </div>
+</section>
+{{ end }}

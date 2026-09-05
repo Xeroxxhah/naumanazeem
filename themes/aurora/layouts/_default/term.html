@@ -1,0 +1,26 @@
+{{ define "main" }}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">{{ .Type }}</p>
+    <h1 class="page-title">#{{ .Title }}</h1>
+    <p class="page-lead">{{ len .Pages }} {{ if eq (len .Pages) 1 }}note{{ else }}notes{{ end }} filed under this tag.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="post-list">
+      {{ range .Pages }}
+      <a class="post-row" href="{{ .RelPermalink }}">
+        <div class="post-row-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+        </div>
+        <h2 class="post-row-title">{{ .Title }}</h2>
+        <p class="post-row-excerpt">{{ .Summary | plainify | truncate 160 }}</p>
+      </a>
+      {{ end }}
+    </div>
+    <p><a class="text-link" href="{{ "blog/" | relURL }}">← All notes</a></p>
+  </div>
+</section>
+{{ end }}

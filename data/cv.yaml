@@ -1,0 +1,58 @@
+# ── CV content — facts from Nauman's resume ──────────────────────────────
+
+headline: >
+  Vulnerability assessment & penetration tester with over four years in
+  cybersecurity — web application and network security, Python tooling,
+  and red-team engagements.
+
+contact:
+  email: work.naumanazeem@gmail.com
+  phone: +92 318 5155488
+  location: Rawalpindi, Pakistan
+  website: naumanazeem.work
+
+# Ordered by group strength; rendered as grouped chips on the CV page.
+skills:
+  - group: Offensive
+    items: [Penetration Testing, Web App Security, Network Security, Red Teaming, Social Engineering]
+  - group: AppSec
+    items: [SAST & DAST, Cloud Security, Vulnerability Assessment, Malware Analysis & Triage, Incident Response]
+  - group: Engineering
+    items: [Python, Flask / Django, Bash Scripting, Git, PHP, C / C++]
+  - group: Platforms
+    items: [Azure & AWS, Windows, Linux & Unix]
+  - group: Tooling
+    items: [Metasploit, Burp Suite, Wireshark, Nmap, Splunk]
+
+experience:
+  - company: Zeroxinn Pvt Ltd, Islamabad
+    role: Cybersecurity Engineer / Penetration Tester
+    period: May 2020 — Present
+    points:
+      - Conduct penetration tests and vulnerability assessments on web applications, networks, and systems; deliver findings with remediation guidance.
+      - Lead red-team engagements that simulate real-world attacks to test organizational defenses.
+      - Develop custom Python scripts and tooling to automate security tasks, analyze logs, and harden systems.
+      - Respond to security incidents with forensic analysis and preventative recommendations.
+      - Perform security configuration assessments and infrastructure reviews.
+      - Run security awareness training for staff and keep abreast of emerging threats and techniques.
+
+  - company: VaporVM IT Services, Lahore
+    role: Intern — Cybersecurity & Automation
+    period: Oct 2021 — Jan 2022
+    points:
+      - Conducted security configuration assessments and penetration tests for mobile and web applications.
+      - Assessed infrastructure security and optimized processes with Python scripting.
+      - Pinpointed vulnerabilities and worked with cross-functional teams on remediation and automation.
+
+certifications:
+  - { name: Certified Red Team Professional (CRTP), issuer: Altered Security, year: 'Jan 2025', url: 'https://www.credential.net/8ddc8193-f02c-41f9-9bb0-8ff7bf7aa0f0#acc.lHaVskmI' }
+  - { name: Certified in Cybersecurity (CC), issuer: ISC², year: 'Jun 2023' }
+  - { name: Malware Analysis and Triage, issuer: TCM Security, year: '' }
+
+education:
+  - school: Bahria University, Islamabad
+    degree: BS Information Technology
+    period: 2019 — 2023
+  - school: HAPS&C, Islamabad
+    degree: ICS — Intermediate in Computer Science
+    period: 2017 — 2019

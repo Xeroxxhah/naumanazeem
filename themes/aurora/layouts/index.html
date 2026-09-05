@@ -1,0 +1,129 @@
+{{ define "main" }}
+{{ $cv := hugo.Data.cv }}
+{{ $company := hugo.Data.company }}
+
+<!-- ── Hero ──────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="wrap">
+    <p class="hero-kicker">{{ site.Params.monogram }} <span aria-hidden="true">/</span> {{ lower site.Params.role }}</p>
+    <h1 class="hero-title">I test systems<br>the way attackers do.</h1>
+    <p class="hero-sub">{{ .Params.headline }}</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ "cv/" | relURL }}">View CV</a>
+      <a class="btn btn-ghost" href="{{ "contact/" | relURL }}">Get in touch</a>
+    </div>
+    <dl class="hero-facts">
+      <div><dt>Base</dt><dd>{{ site.Params.location }}</dd></div>
+      <div><dt>In security</dt><dd>Since 2020</dd></div>
+      <div><dt>Company</dt><dd><a href="{{ "company/" | relURL }}">{{ $company.name }}</a></dd></div>
+      <div><dt>Product</dt><dd><a href="{{ $company.website }}" target="_blank" rel="noopener">{{ $company.product }}</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ── About ─────────────────────────────────────────────────────────── -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">01 — Profile</p>
+        <h2 class="section-title">{{ site.Params.profileLead }}</h2>
+      </div>
+    </div>
+    <div class="split">
+      <p class="lead">{{ site.Params.intro }}</p>
+      <div class="side-facts">
+        <div class="fact-line"><span class="mono">Status</span><span>Open to engagements</span></div>
+        <div class="fact-line"><span class="mono">Certs</span><span>CRTP · ISC² CC · Malware Analysis &amp; Triage</span></div>
+        <div class="fact-line"><span class="mono">Tools</span><span>Burp Suite · Metasploit · Wireshark · Nmap · Splunk</span></div>
+        <div class="fact-line"><span class="mono">Stack</span><span>Python · Flask/Django · C/C++ · Bash · PHP · Azure &amp; AWS</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── What I do ─────────────────────────────────────────────────────── -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">02 — What I do</p>
+        <h2 class="section-title">Offensive security, done for real</h2>
+      </div>
+    </div>
+    <div class="cards">
+      {{ $svc := slice
+        (dict "icon" "target" "title" "Penetration testing" "text" "Web applications, networks, mobile, and infrastructure — manual testing on top of tooling, with findings you can act on.")
+        (dict "icon" "shield" "title" "Red teaming" "text" "Full-scope simulations against people and systems: phishing, lateral movement, and the detections that catch it.")
+        (dict "icon" "code" "title" "Security engineering" "text" "Python tooling, SAST/DAST in the pipeline, and cloud hardening — fixing the class of bug, not the instance.") }}
+      {{ range $svc }}
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" .icon) }}</span>
+        <h3 class="card-title">{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ── Company / product ─────────────────────────────────────────────── -->
+{{ with $company }}
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">03 — Company</p>
+        <h2 class="section-title">{{ .name }}</h2>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="{{ "company/" | relURL }}">About <span aria-hidden="true">→</span></a>
+    </div>
+    <p class="section-lead">{{ .tagline }}</p>
+    <div class="product-card">
+      <div>
+        <p class="mono">Flagship product</p>
+        <h3 class="product-name">نظام مکتب <span>·</span> {{ .product }}</h3>
+        <p class="product-desc">School management built for Pakistani schools — fee challans, attendance, and parent notifications in English and Urdu, no app to install. The web applications I test for a living, I also build.</p>
+      </div>
+      <a class="btn btn-ghost" href="{{ .website }}" target="_blank" rel="noopener">nizammaktab.online <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+{{ end }}
+
+<!-- ── Experience ────────────────────────────────────────────────────── -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">04 — Experience</p>
+        <h2 class="section-title">Where I've done the work</h2>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="{{ "cv/" | relURL }}">Full CV <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="exp-list">
+      {{ range $cv.experience }}
+      <article class="exp-row">
+        <div class="exp-when mono">{{ .period }}</div>
+        <div class="exp-body">
+          <h3 class="exp-role">{{ .role }}</h3>
+          <p class="exp-org">{{ .company }}</p>
+          <ul class="exp-points">
+            {{ range first 3 .points }}<li>{{ . }}</li>{{ end }}
+          </ul>
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ───────────────────────────────────────────────────────────── -->
+<section class="cta">
+  <div class="wrap cta-inner">
+    <h2 class="cta-title">Have something you'd like tested?</h2>
+    <p class="cta-sub">Penetration testing, red-team exercises, or a security review — start with a conversation.</p>
+    <a class="btn btn-primary" href="{{ "contact/" | relURL }}">Start a conversation</a>
+  </div>
+</section>
+{{ end }}

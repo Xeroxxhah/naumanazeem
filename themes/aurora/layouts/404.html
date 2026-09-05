@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="section">
+  <div class="wrap notfound">
+    <p class="notfound-code">404</p>
+    <h1 class="notfound-title">This page wandered off the network</h1>
+    <p class="notfound-sub">The link is broken, the page moved, or the target was never there — a good reminder that not everything reachable is supposed to be.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="{{ site.Home.RelPermalink }}">Back to home</a>
+      <a class="btn btn-ghost" href="{{ "blog/" | relURL }}">Read the blog</a>
+    </div>
+  </div>
+</section>
+{{ end }}

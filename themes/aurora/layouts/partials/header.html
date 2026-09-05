@@ -1,0 +1,27 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}" aria-label="{{ site.Title }} — home">
+      <span class="brand-mark" aria-hidden="true">{{ site.Params.monogram }}</span>
+      <span class="brand-text">{{ site.Params.name }}</span>
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="sr-only">Menu</span>
+    </button>
+    <nav class="site-nav" id="nav-menu" aria-label="Main">
+      <ul>
+        {{ $cur := . }}
+        {{ range site.Menus.main }}
+          {{ $active := or ($cur.IsMenuCurrent "main" .) ($cur.HasMenuCurrent "main" .) }}
+          {{ if not $active }}
+            {{ if and $cur.IsHome (eq .PageRef "/") }}{{ $active = true }}{{ end }}
+            {{ if and (eq $cur.Section "blog") (eq .Name "Blog") }}{{ $active = true }}{{ end }}
+          {{ end }}
+          <li><a class="nav-link{{ if $active }} is-active{{ end }}" href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a></li>
+        {{ end }}
+      </ul>
+    </nav>
+  </div>
+</header>

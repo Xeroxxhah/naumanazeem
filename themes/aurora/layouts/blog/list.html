@@ -1,0 +1,46 @@
+{{ define "main" }}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">{{ site.Params.blogTitle }}</p>
+    <h1 class="page-title">{{ .Title }}</h1>
+    <p class="page-lead">{{ with .Description }}{{ . }}{{ else }}{{ site.Params.blogSubtitle }}{{ end }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    {{ $posts := .Pages }}
+    {{ if $posts }}
+    <div class="post-list">
+      {{ range $posts }}
+      <a class="post-row" href="{{ .RelPermalink }}">
+        <div class="post-row-meta">
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 02, 2006" }}</time>
+          {{ with .Params.tags }}
+          <span class="post-tags">{{ range . }}<span class="chip">{{ . }}</span>{{ end }}</span>
+          {{ end }}
+        </div>
+        <h2 class="post-row-title">{{ .Title }}</h2>
+        <p class="post-row-excerpt">{{ .Summary | plainify | truncate 160 }}</p>
+      </a>
+      {{ end }}
+    </div>
+
+    {{ $pag := .Paginate $posts }}
+    {{ if gt $pag.TotalPages 1 }}
+    <nav class="pagination" aria-label="Pagination">
+      {{ if $pag.HasPrev }}<a class="btn btn-ghost btn-sm" href="{{ $pag.Prev.URL }}">← Newer</a>{{ else }}<span></span>{{ end }}
+      <span class="page-info">Page {{ $pag.PageNumber }} of {{ $pag.TotalPages }}</span>
+      {{ if $pag.HasNext }}<a class="btn btn-ghost btn-sm" href="{{ $pag.Next.URL }}">Older →</a>{{ else }}<span></span>{{ end }}
+    </nav>
+    {{ end }}
+    {{ else }}
+    <div class="empty-state">
+      <p class="eyebrow">Coming soon</p>
+      <h2 class="section-title">No notes published yet</h2>
+      <p>Write-ups from engagements, lab notes, and the occasional build — first post is in progress.</p>
+    </div>
+    {{ end }}
+  </div>
+</section>
+{{ end }}

@@ -1,0 +1,9 @@
+# ── Footer / social links ─────────────────────────────────────────────────
+# Icons are drawn from the icon partial; add any key present there.
+# Empty array hides the row.
+
+footer:
+  - { name: GitHub, icon: github, url: 'https://github.com/XeroxXhah' }
+  - { name: LinkedIn, icon: linkedin, url: 'https://www.linkedin.com/in/muhammad-nauman-azeem-107a07180' }
+  - { name: Email, icon: mail, url: 'mailto:work.naumanazeem@gmail.com' }
+  - { name: RSS, icon: rss, url: '/index.xml' }

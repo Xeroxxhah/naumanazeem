@@ -1,0 +1,96 @@
+{{ define "main" }}
+{{ $cv := hugo.Data.cv }}
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Curriculum vitae</p>
+    <h1 class="page-title">{{ site.Params.name }}</h1>
+    <p class="page-lead">{{ $cv.headline }}</p>
+    <div class="cv-actions">
+      <a class="btn btn-primary btn-sm" href="{{ "contact/" | relURL }}">Contact</a>
+      <a class="btn btn-ghost btn-sm" href="mailto:{{ $cv.contact.email }}">Email me</a>
+      <button class="btn btn-ghost btn-sm" id="print-cv" type="button">Print / save PDF</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="cv-layout">
+      <!-- Sidebar -->
+      <aside class="cv-side">
+        <div class="cv-block">
+          <h3 class="cv-block-title">Contact</h3>
+          <ul class="cv-list">
+            <li><span class="cv-list-label">Email</span><a href="mailto:{{ $cv.contact.email }}">{{ $cv.contact.email }}</a></li>
+            <li><span class="cv-list-label">Phone</span><a href="{{ site.Params.phoneHref }}">{{ $cv.contact.phone }}</a></li>
+            <li><span class="cv-list-label">Location</span>{{ $cv.contact.location }}</li>
+            <li><span class="cv-list-label">Web</span><a href="https://{{ $cv.contact.website }}" target="_blank" rel="noopener">{{ $cv.contact.website }}</a></li>
+          </ul>
+        </div>
+
+        <div class="cv-block">
+          <h3 class="cv-block-title">Skills</h3>
+          <div class="skill-groups">
+            {{ range $cv.skills }}
+            <div class="skill-group">
+              <p class="skill-group-name">{{ .group }}</p>
+              <div class="skill-chips">
+                {{ range .items }}<span class="chip">{{ . }}</span>{{ end }}
+              </div>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </aside>
+
+      <!-- Main column -->
+      <div class="cv-main">
+        <div class="cv-section">
+          <h2 class="cv-section-title">Experience</h2>
+          <div class="timeline">
+            {{ range $cv.experience }}
+            <article class="timeline-item">
+              <div class="timeline-head">
+                <h3 class="timeline-role">{{ .role }}</h3>
+                <p class="timeline-org">{{ .company }} · <span class="timeline-period">{{ .period }}</span></p>
+              </div>
+              <ul class="timeline-points">
+                {{ range .points }}<li>{{ . }}</li>{{ end }}
+              </ul>
+            </article>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Education</h2>
+          <div class="edu-grid">
+            {{ range $cv.education }}
+            <div class="edu-card">
+              <p class="mono">{{ .period }}</p>
+              <h3>{{ .degree }}</h3>
+              <p class="muted">{{ .school }}</p>
+            </div>
+            {{ end }}
+          </div>
+        </div>
+
+        <div class="cv-section">
+          <h2 class="cv-section-title">Certifications</h2>
+          <div class="edu-grid">
+            {{ range $cv.certifications }}
+            <div class="edu-card">
+              <p class="mono">{{ with .year }}{{ . }}{{ else }}—{{ end }}</p>
+              <h3>{{ .name }}</h3>
+              <p class="muted">{{ .issuer }}</p>
+              {{ with .url }}<p class="cert-verify"><a href="{{ . }}" target="_blank" rel="noopener">Verify credential ↗</a></p>{{ end }}
+            </div>
+            {{ end }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

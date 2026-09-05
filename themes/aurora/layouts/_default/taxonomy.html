@@ -1,0 +1,19 @@
+{{ define "main" }}
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Browse</p>
+    <h1 class="page-title">Tags</h1>
+    <p class="page-lead">Everything on the blog, grouped by topic.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="tag-cloud">
+      {{ range .Pages }}
+      <a class="tag-item" href="{{ .RelPermalink }}">{{ .Title }} <span class="tag-count">{{ len .Pages }}</span></a>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}

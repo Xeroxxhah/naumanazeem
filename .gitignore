@@ -1,0 +1,13 @@
+# Hugo
+/public/
+/resources/_gen/
+.hugo_build.lock
+hugo.lock
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+*.iml

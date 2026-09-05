@@ -1,0 +1,5 @@
+<div class="socials" role="list" aria-label="Find me online">
+  {{ range hugo.Data.socials.footer }}
+  <a class="social-link" href="{{ .url }}" target="_blank" rel="noopener me" role="listitem" aria-label="{{ .name }}">{{ partial "icon.html" (dict "name" .icon) }}</a>
+  {{ end }}
+</div>

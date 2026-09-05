@@ -1,0 +1,139 @@
+{{ define "main" }}
+{{ $c := hugo.Data.company }}
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Company</p>
+    <h1 class="page-title">{{ $c.name }}</h1>
+    <p class="page-lead">{{ $c.tagline }}</p>
+    <div class="cv-actions">
+      <a class="btn btn-primary btn-sm" href="{{ $c.website }}" target="_blank" rel="noopener">{{ $c.product }} ↗</a>
+      <a class="btn btn-ghost btn-sm" href="{{ "contact/" | relURL }}">Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section">
+  <div class="wrap">
+    <div class="split">
+      <div class="split-main">
+        <p class="eyebrow">Who we are</p>
+        <h2 class="section-title">Software for Pakistani schools,<br>hardened by offensive security.</h2>
+        <div class="prose">
+          <p>{{ $c.about }}</p>
+        </div>
+      </div>
+      <aside class="fact-card">
+        <ul class="fact-list">
+          <li><span class="label">Product</span><span><a href="{{ $c.website }}" target="_blank" rel="noopener">{{ $c.product }}</a></span></li>
+          <li><span class="label">Website</span><span><a href="{{ $c.website }}" target="_blank" rel="noopener">{{ $c.website }}</a></span></li>
+          <li><span class="label">Email</span><span><a href="mailto:{{ $c.contactEmail }}">{{ $c.contactEmail }}</a></span></li>
+          <li><span class="label">Parent of</span><span>naumanazeem.work — security services</span></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- Capabilities -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">What we do</p>
+        <h2 class="section-title">Capabilities</h2>
+      </div>
+    </div>
+    <div class="cards">
+      {{ range $c.services }}
+      <article class="card">
+        <span class="card-icon" aria-hidden="true">{{ partial "icon.html" (dict "name" .icon) }}</span>
+        <h3 class="card-title">{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">How engagements run</p>
+        <h2 class="section-title">The process</h2>
+      </div>
+    </div>
+    <ol class="process-list">
+      {{ range $i, $s := $c.process }}
+      <li class="process-step">
+        <span class="process-num mono">0{{ add $i 1 }}</span>
+        <h3 class="process-title">{{ $s.title }}</h3>
+        <p>{{ $s.text }}</p>
+      </li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="section section-alt">
+  <div class="wrap split">
+    <div class="split-main">
+      <p class="eyebrow">Why us</p>
+      <h2 class="section-title">Why teams work with us</h2>
+    </div>
+    <ul class="check-list">
+      {{ range $c.whyUs }}
+      <li><span class="check-ico" aria-hidden="true">{{ partial "icon.html" (dict "name" "check") }}</span>{{ . }}</li>
+      {{ end }}
+    </ul>
+  </div>
+</section>
+
+<!-- Product feature -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Flagship product</p>
+        <h2 class="section-title">{{ $c.product }}</h2>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="{{ $c.website }}" target="_blank" rel="noopener">nizammaktab.online <span aria-hidden="true">↗</span></a>
+    </div>
+    <p class="section-lead">Fee challans, attendance, and parent notifications — in English and Urdu, built for how Pakistani schools actually run.</p>
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>Fees & challans</h3>
+        <p>Class-wise fee structures, sibling and staff discounts, and one-click bulk generation of printable bank challans.</p>
+      </div>
+      <div class="feature">
+        <h3>Parent notifications</h3>
+        <p>Fee reminders, receipts, and absence alerts by email — every message recorded, in the parent's language.</p>
+      </div>
+      <div class="feature">
+        <h3>Attendance</h3>
+        <p>Teachers mark their own classes; daily registers, per-student history, and monthly summaries for parents.</p>
+      </div>
+      <div class="feature">
+        <h3>Parent portal</h3>
+        <p>Parents sign in with phone or email — no app to install. Fees, attendance, and remarks in Urdu, right-to-left.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap cta-inner">
+    <h2 class="cta-title">See Nizam Maktab on your own class list</h2>
+    <p class="cta-sub">Send one class of students and we'll set the system up so you can see your real fee challans before deciding.</p>
+    <div class="cta-actions">
+      <a class="btn btn-primary" href="{{ $c.website }}" target="_blank" rel="noopener">Book a demo</a>
+      <a class="btn btn-ghost" href="https://wa.me/923185155488" target="_blank" rel="noopener">WhatsApp 0318 5155488</a>
+    </div>
+  </div>
+</section>
+{{ end }}
